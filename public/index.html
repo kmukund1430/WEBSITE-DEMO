@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Website</title>
+</head>
+<body>
+    <h1>Welcome to the GitHub Website!</h1>
+    <button onclick="fetchRepos()">Fetch Repos</button>
+    <div id="repos"></div>
+    <script>
+        async function fetchRepos() {
+            const response = await fetch('/repos');
+            const repos = await response.json();
+            document.getElementById('repos').innerHTML = JSON.stringify(repos, null, 2);
+        }
+    </script>
+</body>
+</html>
